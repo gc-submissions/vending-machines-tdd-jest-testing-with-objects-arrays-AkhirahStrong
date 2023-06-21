@@ -45,7 +45,7 @@ in the array. The names of the items do not affect this function.*/
 function calculateTotal(itemsArray) {
   let sum = 0;
 
-  for (let i = 0; i < itemsArray.legth; i++) {
+  for (let i = 0; i < itemsArray.length; i++) {
     sum += itemsArray[i].price;
   }
 
@@ -53,3 +53,22 @@ function calculateTotal(itemsArray) {
 }
 
 exports.calculateTotal = calculateTotal;
+
+/*addItem function
+In the file cart-functions.js, create an addItem function and export it.
+This function has three parameters:
+itemsArray (an array of objects)
+name (a string)
+price (a number)
+Each object in the itemsArray will have a name and a price. Here's an example
+{ name: "Jelly", price: 3.50 }
+The function modifies itemsArray by adding a new object to the end of it. 
+The new object should have name and price properties set from the name and 
+price parameters.
+The function does not return anything.*/
+
+function addItem(itemsArray, name, price) {
+  itemsArray = [...itemsArray, { name, price }];
+}
+
+exports.addItem = addItem;

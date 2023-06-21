@@ -86,12 +86,49 @@ describe("calculateTotal", () => {
   test.todo("add calculateTotal tests here");
 
   test("Given an itemsArray of one item with price 4.99, it returns 4.99", () => {
-    const itemsArray = [{ name: "redItem", price: 4.99 }];
-    const expectedResult = 4.99;
+    const itemsArray = [
+      { name: "redItem", price: 4.99 },
+      { name: "blueItem", price: 0.0 },
+    ];
+    const itemResult = 4.99;
 
     const result = calculateTotal(itemsArray);
 
-    expect(result).toEqual(expectedResult);
+    expect(result).toEqual(itemResult);
+  });
+
+  test("Given an itemsArray of three items with prices 3.50, 12.99, and 0.03, it returns 16.52", () => {
+    const itemsArray = [
+      { name: "redItem", price: 3.5 },
+      { name: "blueItem", price: 12.99 },
+      { name: "greenItem", price: 0.03 },
+    ];
+    const itemResult = 16.52;
+
+    const result = calculateTotal(itemsArray);
+
+    expect(result).toBeCloseTo(itemResult, 2);
+  });
+
+  test("Given an empty itemsArray, it returns 0;", () => {
+    const itemsArray = [];
+    const itemResult = 0;
+
+    const result = calculateTotal(itemsArray);
+
+    expect(result).toEqual(itemResult);
+  });
+
+  test("Add two items with negative prices -12 and -24", () => {
+    const itemsArray = [
+      { name: "Item 1", price: -12 },
+      { name: "Item 2", price: -24 },
+    ];
+    const itemResult = -36;
+
+    const result = calculateTotal(itemsArray);
+
+    expect(result).toEqual(itemResult);
   });
 });
 
